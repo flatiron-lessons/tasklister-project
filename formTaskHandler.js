@@ -19,10 +19,7 @@ function populateDropDown(taskForm) {
   const dropDownLocation = taskForm.querySelector("select")
   let dropDownOptions = List.all().forEach((list) => {
     dropDownLocation.innerHTML += `<option id="list-${list.id}" value="${list.id}">${list.title}</option>`
-    
-
   })
-
 }
 
 
@@ -45,21 +42,14 @@ function populateList(newTask, allLists) {
   // let input = taskForm.querySelector("#description-input")
   // let priority = taskForm.querySelector("#priority-level-input")
 
-  contentLocation.innerHTML += `<ul><li> Description: ${newTask.description}</li> <li> Priortity Level:${newTask.priorityLevel}</li></ul>`
+  contentLocation.innerHTML += `<ul><li id="task-${newTask.id}" data-id="${newTask.id}"> Description: ${newTask.description}\n Priortity Level:${newTask.priorityLevel} <button type="delete" data-id="${newTask.id}" class="destroy-task">x</button></li></ul>`
 }
 
 function formTaskHandler(newListInput, taskForm) {
   event.preventDefault()
 
-
-
-
-
-
 	// allLists.innerHTML += `<li> ${newListInput.value} <button class="destroy-list">x</button> </li>`
-
   populateDropDown()
   submitTask()
   taskForm.innerHTML = renderForm()
-
 }
