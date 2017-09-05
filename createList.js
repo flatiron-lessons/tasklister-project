@@ -6,9 +6,10 @@ const List = (function createList() {
 		constructor (title){
 			this.title = title
 			all.push(this)
+			this.id = id++
 		}
 		static all() {
 			return all
-		}	
-	}		
+		}
+	}
 })()
