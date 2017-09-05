@@ -19,7 +19,7 @@ function populateDropDown(taskForm) {
   const dropDownLocation = taskForm.querySelector("select")
   let dropDownOptions = List.all().forEach((list) => {
     dropDownLocation.innerHTML += `<option id="list-${list.id}" value="${list.id}">${list.title}</option>`
-
+    
 
   })
 

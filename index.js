@@ -23,4 +23,31 @@ document.addEventListener("DOMContentLoaded", function() {
 		 populateList(newTask, allLists)
 	 })
 
+	 // add listener to the container
+	 allLists.addEventListener("click", () => {
+		 event.preventDefault()
+		 // check event.target === "destroy-list"
+		 if (event.target.className === "destroy-list") {
+			 // find the id associated with this button and delete it
+			 let deleteThis = List.all().find(list => {
+				 return list.id === parseInt(event.target.dataset.id)
+			 })
+			 let index = List.all().indexOf(deleteThis)
+			 List.all().splice(index, 1)
+			 //find id associated with this delete button)
+			 // delete this instance and its contents
+			 let element = allLists.querySelector(`#list-${deleteThis.id}`)
+			 let dropDownElement = taskForm.querySelector(`#list-${deleteThis.id}`)
+			 element.remove()
+			console.log(dropDownElement)
+			dropDownElement.remove()
+		 }
+
+	 }
+ )
+
+
+
+
+
 })
